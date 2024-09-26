@@ -1,0 +1,41 @@
+Write a python program to import and export data using Pandas and show the details of the dataset like number of rows, columns, first five rows, size, number of missing values, sum, average, min and max values from the numerical columns.
+
+
+# Importing the necessary libraries
+import pandas as pd
+
+# Uploading the file
+from google.colab import files
+uploaded = files.upload()
+
+
+# The uploaded file's name will be used
+for filename in uploaded.keys():
+    data = pd.read_csv(filename)
+
+# Displaying (number of rows and columns)
+num_rows, num_columns = data.shape
+print(f'Number of rows: {num_rows}')
+print(f'Number of columns: {num_columns}')
+
+# Showing the first five rows
+print('\nFirst five rows of the dataset:')
+print(data.head())
+
+# Displaying the size
+size = data.size
+print(f'\nSize of the dataset: {size}')
+
+# Counting the number of missing values in each column
+missing_values = data.isnull().sum()
+print('\nNumber of missing values in each column:')
+print(missing_values)
+
+# Calculating and displaying the summary statistics for numerical columns
+numerical_summary = data.describe()
+print('\nSummary statistics for numerical columns:')
+print(numerical_summary)
+
+# Replace 'modified_dataset.csv' with your desired output filename
+data.to_csv('modified_dataset.csv', index=False)
+print('\nData exported to modified_dataset.csv')
