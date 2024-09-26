@@ -1,4 +1,4 @@
-Write a python program to import and export data using Pandas and show the details of the dataset like number of rows, columns, first five rows, size, number of missing values, sum, average, min and max values from the numerical columns.
+Q)Write a python program to import and export data using Pandas and show the details of the dataset like number of rows, columns, first five rows, size, number of missing values, sum, average, min and max values from the numerical columns.
 
 
 # Importing the necessary libraries
@@ -18,37 +18,12 @@ num_rows, num_columns = data.shape
 print(f'Number of rows: {num_rows}')
 print(f'Number of columns: {num_columns}')
 
-# Showing the first five rows
-print('\nFirst five rows of the dataset:')
-print(data.head())
-
-size = data.size
-print(f'\nSize of the dataset: {size}')
-
-# Counting the number of missing values in each column
-missing_values = data.isnull().sum()
-print('\nNumber of missing values in each column:')
-print(missing_values)
-
-# Calculating and displaying the summary statistics for numerical columns
-numerical_summary = data.describe()
-print('\nSummary statistics for numerical columns:')
-print(numerical_summary)
-
-# Replace 'modified_dataset.csv' with your desired output filename
-data.to_csv('modified_dataset.csv', index=False)
-print('\nData exported to modified_dataset.csv')
-
-
-OUTPUT:
-
-Upload widget is only available when the cell has been executed in the current browser session. Please rerun this cell to enable.
-Saving business.csv to business(1).csv
-
-
 Number of rows: 50985
 Number of columns: 10
 
+# Showing the first five rows
+print('\nFirst five rows of the dataset:')
+print(data.head())
 
 First five rows of the dataset:
    Year Industry_aggregation_NZSIOC Industry_code_NZSIOC Industry_name_NZSIOC  \
@@ -79,9 +54,15 @@ First five rows of the dataset:
 3   25010  ANZSIC06 divisions A-S (excluding classes K633...  
 4  832964  ANZSIC06 divisions A-S (excluding classes K633...  
 
+size = data.size
+print(f'\nSize of the dataset: {size}')
 
 Size of the dataset: 509850
 
+# Counting the number of missing values in each column
+missing_values = data.isnull().sum()
+print('\nNumber of missing values in each column:')
+print(missing_values)
 
 Number of missing values in each column:
 Year                           0
@@ -96,6 +77,10 @@ Value                          0
 Industry_code_ANZSIC06         0
 dtype: int64
 
+# Calculating and displaying the summary statistics for numerical columns
+numerical_summary = data.describe()
+print('\nSummary statistics for numerical columns:')
+print(numerical_summary)
 
 Summary statistics for numerical columns:
                Year
@@ -108,5 +93,15 @@ min     2013.000000
 75%     2021.000000
 max     2023.000000
 
+# Replace 'modified_dataset.csv' with your desired output filename
+data.to_csv('modified_dataset.csv', index=False)
+print('\nData exported to modified_dataset.csv')
 
 Data exported to modified_dataset.csv
+
+Upload widget is only available when the cell has been executed in the current browser session. Please rerun this cell to enable.
+Saving business.csv to business(1).csv
+
+
+
+
