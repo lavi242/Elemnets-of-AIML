@@ -1,1 +1,43 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+# Reading the dataset (same one used in Experiment 4)
+df = pd.read_csv('business.csv')
+
+# Displaying summary statistics of the dataset (mean, std, min, max, etc.)
+print("Summary Statistics:")
+print(df.describe())
+
+Summary Statistics:
+               Year
+count  50985.000000
+mean    2018.000000
+std        3.162309
+min     2013.000000
+25%     2015.000000
+50%     2018.000000
+75%     2021.000000
+max     2023.000000
+
+# Checking for missing values in each column
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+Missing Values:
+Year                           0
+Industry_aggregation_NZSIOC    0
+Industry_code_NZSIOC           0
+Industry_name_NZSIOC           0
+Units                          0
+Variable_code                  0
+Variable_name                  0
+Variable_category              0
+Value                          0
+Industry_code_ANZSIC06         0
+dtype: int64
+
+# Visualizing the distribution of numerical columns using histograms
+df.hist(figsize=(10, 8))
+plt.tight_layout()
+plt.show()
